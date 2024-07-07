@@ -1,13 +1,15 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LinkCard from "../components/LinkCard";
+import { Image } from "antd";
+import "./ProductDetailPage.css";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
 
   const [productDetail, setProductDetail] = useState([]);
   const [links, setLinks] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProductDetail = async () => {
@@ -20,41 +22,43 @@ const ProductDetailPage = () => {
           setLinks(response.data.link_details);
         }
       } catch (error) {
-      } finally {
-        setLoading(false);
+        console.error(error);
       }
     };
 
     fetchProductDetail();
   }, []);
 
+  let descriptionWithLineBreak = productDetail.description
+    ? productDetail.description.split("\n").map((text, index) => (
+        <React.Fragment key={index}>
+          {text}
+          <br />
+        </React.Fragment>
+      ))
+    : "";
+
   return (
-    <section className="bg-sky-50">
-      <div className="container m-auto py-10 px-6">
-        <div className="grid grid-cols-1 md:grid-cols-60/40 w-full gap-4">
-          <main>
-            <img src={productDetail.image_url} className="rounded-md" />
-          </main>
-
-          <aside>
-            <div className="bg-sky-500 p-6 rounded-md shadow-md">
-              <h1 className="text-4xl	font-medium text-white">
-                {productDetail.title}
-              </h1>
-            </div>
-
-            <div className="bg-white mt-4 p-6 rounded-md shadow-md">
-              <h1 className="text-3xl mb-4">Description</h1>
-              <p>{productDetail.description}</p>
-            </div>
-
-            {links.map((link) => (
-              <LinkCard key={link.id} link={link} />
-            ))}
-          </aside>
+    <div
+      className="grid gap-8 grid-auto-rows max-w-7xl 
+                  mx-4 md:mx-auto
+                  grid-cols-1 md:grid-cols-2"
+    >
+      <div className="row-span-1 ">
+        <div className="flex justify-center">
+          <Image src={productDetail.image_url} />
         </div>
       </div>
-    </section>
+
+      <div className="row-span-1">
+        <h1 className="text-4xl	font-medium mb-4">{productDetail.title}</h1>
+        <p>{descriptionWithLineBreak}</p>
+
+        {links.map((link) => (
+          <LinkCard key={link.id} link={link} />
+        ))}
+      </div>
+    </div>
   );
 };
 
