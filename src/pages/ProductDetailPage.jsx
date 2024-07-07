@@ -40,7 +40,7 @@ const ProductDetailPage = () => {
 
   return (
     <div
-      className="grid gap-8 grid-auto-rows max-w-7xl 
+      className="grid gap-8 grid-auto-rows max-w-5xl 
                   mx-4 md:mx-auto
                   grid-cols-1 md:grid-cols-2"
     >

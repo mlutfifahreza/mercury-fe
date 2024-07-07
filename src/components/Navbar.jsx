@@ -4,12 +4,12 @@ import logo from "../assets/images/logo.png";
 const Navbar = () => {
   const linkClass = ({ isActive }) =>
     isActive
-      ? "bg-black text-white hover:bg-sky-900 hover:text-white rounded-md px-3 py-2"
-      : "text-white hover:bg-sky-900 hover:text-white rounded-md px-3 py-2";
+      ? "bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+      : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2";
 
   return (
-    <nav className="bg-sky-700 border-b border-sky-500 mb-8">
-      <div className="mx-16 md:mx-auto md:max-w-7xl">
+    <nav className="bg-gray-700 border-b border-gray-500 mb-6">
+      <div className="mx-auto max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
         <div className="flex h-20 items-center justify-between">
           <div className="flex flex-1 justify-start items-stretch">
             <NavLink className="flex items-center mr-4" to="/">
