@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-700 border-b border-gray-500 mb-6">
       <div className="mx-auto max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           <div className="flex flex-1 justify-start items-stretch">
             <NavLink className="flex items-center mr-4" to="/">
               <img className="h-10 w-auto" src={logo} alt="React Jobs" />
