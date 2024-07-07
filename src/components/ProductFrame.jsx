@@ -12,7 +12,7 @@ const ProductFrame = ({ product }) => {
       <Card
         hoverable
         style={{
-          width: 240,
+          width: 200,
         }}
         cover={<img alt="example" src={product.image_url} />}
         onClick={() => navigate(`/products/${product.id}`)}

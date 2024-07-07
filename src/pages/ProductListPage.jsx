@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import ProductFrame from "../components/ProductFrame";
 import { Pagination } from "antd";
+import ProductFrame from "../components/ProductFrame";
 
 const ProductListPage = () => {
   const [productList, setProductList] = useState([]);
@@ -37,8 +37,8 @@ const ProductListPage = () => {
   };
 
   return (
-    <main className="max-w-7xl mx-4 md:mx-auto">
-      <div className="grid gap-4 grid-auto-rows grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <main className="mx-auto max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+      <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {productList.map((product) => (
           <ProductFrame key={product.id} product={product} />
         ))}
@@ -52,7 +52,7 @@ const ProductListPage = () => {
         onChange={onPaginationChange}
         pageSize={pageSize}
         pageSizeOptions={pageSizeList}
-        className="mt-8 mb-8"
+        className="my-8"
       />
     </main>
   );
